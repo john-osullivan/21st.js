@@ -1,6 +1,6 @@
 import { Accounts } from 'meteor/accounts-base';
 
-import 'QuizApp/methods';
+import 'GameApp/methods';
 //
 //Accounts.ui.config({
 //    passwordSignupFields: "USERNAME_ONLY"

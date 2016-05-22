@@ -2,8 +2,8 @@ import React from 'react';
 import { Component } from 'react';
 import ReactMixin from 'react-mixin';
 
-import QuizQuestions from './QuizQuestions';
-import QuizSetup from './QuizSetup.jsx';
+import GameQuestions from './GameQuestions';
+import GameScoreboard from './GameScoreboard.jsx';
 
 @ReactMixin.decorate(ReactMeteorData)
 export default class QuizMain extends Component {
@@ -11,15 +11,19 @@ export default class QuizMain extends Component {
         currentTurn : 'start'
     };
 
+    getMeteorData(){
+        var gameId = this.props.params.gameId;
+    }
+
     render(){
         return (
             <div className='container ui grid'>
                 <div className='twelve wide column'>
                     <GameLogin />
-                    <QuizQuestions />
+                    <GameQuestions />
                 </div>
                 <div className='four wide column'>
-                    <QuizSetup />
+                    <GameScoreboard />
                 </div>
             </div>
         );

@@ -1,3 +1,3 @@
 import 'TodoApp/client';
-import 'QuizApp/client';
+import 'GameApp/client';
 import './routes';
