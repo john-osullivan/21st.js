@@ -26,3 +26,5 @@ standard-minifier-css
 standard-minifier-js
 reactrouter:react-router-ssr
 thereactivestack:blazetoreact
+semantic:ui
+flemay:less-autoprefixer
