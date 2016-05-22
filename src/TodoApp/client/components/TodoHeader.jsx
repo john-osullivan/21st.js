@@ -30,7 +30,7 @@ export default class TodoHeader extends Component {
     if (Meteor.userId()) {
       form = (
         <form className="newTask" onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" name="text" placeholder="Type to add new tasks" />
+          <input type="text" name="text" placeholder="Type to add a new question" />
         </form>
       );
     }
@@ -39,12 +39,12 @@ export default class TodoHeader extends Component {
       <header>
         <h1>
           <img src={require('TodoApp/client/img/check.png')} alt="" />
-          Todo List ({this.props.incompleteCount})
+           21.JS ({this.props.incompleteCount})
         </h1>
 
         <label className="hideCompleted">
           <input type="checkbox" checked={this.props.hideCompleted} onChange={this.props.toggleHideCompleted} />
-          Hide Completed Tasks
+          
         </label>
 
         <LoginButtons />
