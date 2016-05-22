@@ -41,7 +41,7 @@ export default class TodoItem extends Component {
                     <li class="quiz-answer low-value" data-quizIndex="2">
                         <div class="answer-wrap"> 
                             <button className="togglePrivate answer-text" onClick={this.handleSetPrivate.bind(this)}>
-        {this.props.task.private ? 'This Thing' : 'WRONG'}
+        {this.props.task.private ?  'WRONG': this.props.task.A1}
                   
 
                             </button> 
@@ -50,7 +50,7 @@ export default class TodoItem extends Component {
                     <li class="quiz-answer high-value" data-quizIndex="4">
                         <div class="answer-wrap"> 
                         <button className="toggleChoice2 answer-text" onClick={this.handleChoice2.bind(this)}>
-        {this.props.task.choice2 ? 'That Thing' : 'RIGHT!'}
+        {this.props.task.choice2 ? 'RIGHT!' : this.props.task.A2}
       </button>
                             
                         </div>
@@ -58,7 +58,7 @@ export default class TodoItem extends Component {
                     <li class="quiz-answer high-value" data-quizIndex="4">
                         <div class="answer-wrap"> 
                         <button className="toggleChoice3 answer-text" onClick={this.handleChoice3.bind(this)}>
-        {this.props.task.choice3 ? 'That OTHER Thing' : 'WRONG!'}
+        {this.props.task.choice3 ? 'WRONG!': this.props.task.A3 }
       </button>
                             
                         </div>
@@ -66,7 +66,7 @@ export default class TodoItem extends Component {
                     <li class="quiz-answer high-value" data-quizIndex="4">
                         <div class="answer-wrap"> 
                         <button className="toggleChoice4 answer-text" onClick={this.handleChoice4.bind(this)}>
-        {this.props.task.choice4 ? 'That Thing' : 'WRONG!'}
+        {this.props.task.choice4 ? 'WRONG!': this.props.task.A4}
       </button>
                             
                         </div>

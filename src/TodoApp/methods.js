@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import Tasks from 'TodoApp/collections/Tasks';
 
 Meteor.methods({
-  addTask: function (text) {
+  addTask: function (text, A1, A2, A3, A4) {
     // Make sure the user is logged in before inserting a task
     if (! Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
@@ -10,6 +10,10 @@ Meteor.methods({
 
     Tasks.insert({
       text: text,
+      A1:A1,
+      A2:A2,
+      A3:A3,
+      A4:A4,
       createdAt: new Date(),
       owner: Meteor.userId(),
       username: Meteor.user().username
