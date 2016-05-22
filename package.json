@@ -6,8 +6,15 @@
   "main": "src/server.js",
   "browser": "src/client.js",
   "dependencies": {
-    "react": "^15.0.0",
-    "react-addons-pure-render-mixin": "^15.0.0",
+    "react": "^15.1.0",
+    "react-addons-create-fragment": "^15.1.0",
+    "react-addons-css-transition-group": "^15.1.0",
+    "react-addons-linked-state-mixin": "^15.1.0",
+    "react-addons-perf": "^15.1.0",
+    "react-addons-pure-render-mixin": "^15.1.0",
+    "react-addons-test-utils": "^15.1.0",
+    "react-addons-transition-group": "^15.1.0",
+    "react-addons-update": "^15.1.0",
     "react-dom": "^15.0.0",
     "react-mixin": "^3.0.3",
     "react-router": "^2.4.0"
