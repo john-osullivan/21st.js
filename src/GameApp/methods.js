@@ -2,16 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import Games from 'GameApp/collections/Games';
 
 Meteor.methods({
-    createGame : function(gameName){
+    createGame : function(gameArgs){
         Games.insert({
-            name : gameName,
-            players : [{
-                userId : Meteor.user()._id,
-                username : Meteor.user().username,
-                drinks : 0
-            }],
-            currentQuestion : 'start',
-            currentTeam : 'red'
+            name : gameArgs.name,
+            players : gameArgs.players,
+            currentChallenge : gameArgs.currentChallenge,
+            currentTeam : gameArgs.currentTeam
         })
     },
     addPlayer(gameId, userId, username){
