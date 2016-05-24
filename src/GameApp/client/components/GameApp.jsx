@@ -86,7 +86,7 @@ export class GameApp extends Component {
         return (
             <Modal></Modal>
         )
-    }44
+    }
 
     challengeSucceeds(){
         console.log("Answer was correct!");
