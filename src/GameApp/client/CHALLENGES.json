@@ -1,0 +1,97 @@
+{
+  "1" : {
+    "text" : "### May 1995: The language which will be known as Javascript is being written in a 10 day sprint... \n By who?",
+    "options" : ["Brendan Eich", "Larry Schmidt", "Richard Stallman", "Marc Andressen"],
+    "correctIndex" : 0
+  },
+  "2" : {
+    "text" : "### The author of Javascript had to rush because it was going to be crammed into the release of... \n Which browser?",
+    "options" : ["Netscape", "Internet Explorer", "Safari", "Opera"],
+    "correctIndex" : 0
+  },
+  "3" : {
+    "text" : "### Javascript has had a lot of names over the years. \n Which one of these names *hasn't* the language been known by?",
+    "options" : ["Mocha", "LiveScript", "ECMAScript", "ActionScript"],
+    "correctIndex" : 3
+  },
+  "4" : {
+    "text" : "```(function(x, f = () => x) { \n var x; \n var y = x; \n x = 2; \n return [x, y, f()]; \n })(1)```",
+    "options" : ["`[2, 1, 1]`", "`[2, undefined, 1]`", "`[2, 1, 2]`", "`[2, undefined, 2]`"],
+    "correctIndex" : 0
+  },
+  "5" : {
+    "text" : "```(function() { \n   let f = this ? class g { } : class h { }; \n   return [ \n     typeof f, \n     typeof h \n   ]; \n })();",
+    "options" : ["`['function', 'undefined']`", "`['function', 'function']`", "`['undefined', 'undefined']`", "`Error`"],
+    "correctIndex" : 0
+  },
+  "6" : {
+    "text" : "`[...[...'...']].length`",
+    "options" : [1, 3, 6, "`Error`"],
+    "correctIndex" : 1
+  },
+  "7" : {
+    "text" : "### 2005: and a white paper was just released about 'AJAX': asynchronous JavaScript and XML. \n Which of these sites became its premier showcase in the years to come?",
+    "options" : ["Google Apps", "Outlook Web App", "Facebook", "eBaum's World"],
+    "correctIndex" : 0
+  },
+  "8" : {
+    "text" : "### September 2008: The open-source V8 Javascript Engine is being released... by who and for what?",
+    "options" : ["The Chromium Project for Google Chrome", "Webkit Group for Apple Safari", "The Mozilla Foundation for Firefox", "Opera Software for Opera"],
+    "correctIndex" : 0
+  },
+  "9" : {
+    "text" : "### February 2009: V8 helps bring Javascript to the server via node.js. \n One of node.js's most powerful features is 'non-blocking I/O', based on a single-thread event loop.  What design pattern is this leveraging?",
+    "options" : ["Observer", "Iterator", "Template method", "Strategy"],
+    "correctIndex" : 0
+  },
+  "10" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  },
+  "11" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  },
+  "12" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  },
+  "13" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  },
+  "14" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  },
+  "15" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  },
+  "16" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  },
+  "17" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  },
+  "18" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  },
+  "19" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  }
+}

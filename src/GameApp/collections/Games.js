@@ -23,7 +23,7 @@ const GameSchema = new SimpleSchema({
     },
     "players.$.team" : {
         type : String,
-        allowedValues : ['red', 'blue', 'none']
+        allowedValues : ['red', 'blue', 'spectator']
     },
     currentChallenge : {
         type : Number,

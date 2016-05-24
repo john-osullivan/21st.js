@@ -11,7 +11,7 @@ const LoginButtons = BlazeToReact('loginButtons');
 
 
 @ReactMixin.decorate(ReactMeteorData)
-export default class GameLobby extends Component {
+export class GameLobby extends Component {
     constructor(props){
         super(props);
         this.updateGameName = this.updateGameName.bind(this);
@@ -34,6 +34,7 @@ export default class GameLobby extends Component {
                 games : allGames
             }
         } else {
+
             return {
                 loading : true
             }
@@ -49,7 +50,7 @@ export default class GameLobby extends Component {
                     userId : thisUser._id,
                     username : thisUser.username,
                     drinks : 0,
-                    team : 'none'
+                    team : 'spectator'
                 }],
                 currentChallenge : 0,
                 currentTeam : 'red'
@@ -100,7 +101,7 @@ export default class GameLobby extends Component {
                     <div className='item' key={key}>
                         <div className='content'>
                             <Link className='header' to={'/game/'+game._id}>
-                                Game #:{game._id}
+                                Game :{' '+game.name}
                             </Link>
                             <div className='description'>
                                 {descriptionString}

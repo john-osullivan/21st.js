@@ -6,14 +6,10 @@ import { BlazeToReact } from 'meteor/thereactivestack:blazetoreact';
 
 const LoginButtons = BlazeToReact('loginButtons');
 
-
-@ReactMixin.decorate(ReactMeteorData)
 export default class GameApp extends Component {
 
     render(){
-        if (Meteor.user() !== null){
-            return null;
-        } else {
+        if (Meteor.user() === null){
             return (
                 <div>
                     <div className='ui attached message'>
@@ -23,9 +19,13 @@ export default class GameApp extends Component {
                         Please pick a username and sign in so we can add you to the game.
                     </div>
                     <div className='ui form'>
-                        {LoginButtons}
+                        {<LoginButtons />}
                     </div>
                 </div>
+            )
+        } else {
+            return (
+            <LoginButtons />
             )
         }
     }
