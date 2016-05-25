@@ -31,7 +31,7 @@
   },
   "7" : {
     "text" : "### 2005: and a white paper was just released about 'AJAX': asynchronous JavaScript and XML. \n Which of these sites became its premier showcase in the years to come?",
-    "options" : ["Google Apps", "Outlook Web App", "Facebook", "eBaum's World"],
+    "options" : ["Google Maps", "Outlook Web App", "Facebook", "eBaum's World"],
     "correctIndex" : 0
   },
   "8" : {
@@ -80,6 +80,16 @@
     "correctIndex" : 0
   },
   "17" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  },
+  "18" : {
+    "text" : "",
+    "options" : [],
+    "correctIndex" : 0
+  },
+  "19" : {
     "text" : "",
     "options" : [],
     "correctIndex" : 0

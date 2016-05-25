@@ -1,0 +1,69 @@
+{
+  "1" : {
+    "text":"### QuestionMaster \n Choose one question as a team, everybody on the other team has to answer."
+  },
+  "2" : {
+    "text":"### Hit the Deck \n Everyone drop to the ground and lay with their forehead down.  Last one there has to stay on the ground for three turns.",
+    "effect":{
+      "labelText":"Hit the Deck",
+      "duration" : 3
+    }
+  },
+  "3" : {
+    "text":"### Storytime \n Tell a funny story from back when you were in high school."
+  },
+  "4" : {
+    "text":"### Storytime \n Tell a wild college story."
+  },
+  "5" : {
+    "text":"### Bottoms Up \n Choose someone on the opposite team "
+  },
+  "6" : {
+
+  },
+  "7" : {
+
+  },
+  "8" : {
+
+  },
+  "9" : {
+
+  },
+  "10" : {
+
+  },
+  "11" : {
+
+  },
+  "12" : {
+
+  },
+  "13" : {
+
+  },
+  "14" : {
+
+  },
+  "15" : {
+
+  },
+  "16" : {
+
+  },
+  "17" : {
+
+  },
+  "18" : {
+
+  },
+  "19" : {
+
+  },
+  "20" : {
+
+  },
+  "21" : {
+
+  }
+}

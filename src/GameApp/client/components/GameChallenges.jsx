@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-var ChallengeJSON = require('./../CHALLENGES.json');
+var ChallengeJSON = require('./../json/CHALLENGES.json');
 var Markdown = require('react-markdown');
 import MultipleChoice from "./MultipleChoice";
 
@@ -8,6 +8,7 @@ export default class GameChallenges extends Component {
     constructor(props){
         super(props);
         this.buildChallengeContent = this.buildChallengeContent.bind(this);
+        this.buildChallengeAction = this.buildChallengeAction.bind(this);
     }
 
     buildChallengeContent(thisChallenge){
@@ -50,20 +51,54 @@ export default class GameChallenges extends Component {
         return challengeContent;
     }
 
+    buildChallengeAction(thisChallenge){
+        var challengeAction = null;
+
+        switch(this.props.currentChallenge){
+            case(0):
+                challengeAction = (
+                    <div className='ui bottom attached segment one column grid'>
+                        <div className='column'>
+                            <button onClick={this.props.advanceTurn} className='ui right floated positive button'>
+                                Begin 21.js
+                            </button>
+                        </div>
+                    </div>
+                );
+                break;
+            case(22):
+                challengeAction = (
+                    <div className='ui bottom attached segment one column grid'>
+                        <div className='column'>
+                            <button className='ui right floated positive button'>
+                                Restart 21.js
+                            </button>
+                        </div>
+                    </div>
+                );
+                break;
+                break;
+            default:
+                challengeAction = (
+                    <div className='ui bottom attached segment'>
+                        <MultipleChoice
+                            options={thisChallenge.options}
+                            correctIndex={thisChallenge['correctIndex']}
+                            challengeSucceeds={this.props.challengeSucceeds}
+                            challengeFails={this.props.challengeFails}
+                            />
+                    </div>);
+                break;
+        }
+        return challengeAction;
+    }
+
     render(){
         console.log("Challenges: ",ChallengeJSON);
         var challenge = ChallengeJSON[this.props.currentChallenge];
         console.log("This challenge:",challenge);
         var challengeContent = this.buildChallengeContent(challenge);
-        var challengeAction = (
-            <div className='ui bottom attached segment'>
-                <MultipleChoice
-                    options={challenge.options}
-                    correctIndex={challenge['correctIndex']}
-                    challengeSucceeds={this.props.challengeSucceeds}
-                    challengeFails={this.props.challengeFails}
-                    />
-            </div>);
+        var challengeAction = this.buildChallengeAction(challenge);
         return (
             <div>
                 <h2 className='ui dividing header'>

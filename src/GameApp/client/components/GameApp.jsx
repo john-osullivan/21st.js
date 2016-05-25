@@ -9,14 +9,10 @@ import GameScoreboard from './GameScoreboard.jsx';
 
 import Games from 'GameApp/collections/Games';
 import Modal from 'react-modal';
+import Markdown from 'react-markdown';
 
-const REWARDS = [
-
-];
-
-const PENALTIES = [
-
-];
+const REWARDS = require('./../json/REWARDS.json');
+const PENALTIES = require('./../json/PENALTIES.json');
 
 const customStyles = {
     content : {
@@ -25,7 +21,9 @@ const customStyles = {
         right                 : 'auto',
         bottom                : 'auto',
         marginRight           : '-50%',
-        transform             : 'translate(-50%, -50%)'
+        width                 : '50%',
+        transform             : 'translate(-50%, -50%)',
+        backgroundColor       : 'white'
     }
 };
 
@@ -40,6 +38,9 @@ export class GameApp extends Component {
         this.lastChallenge = this.lastChallenge.bind(this);
         this.challengeFails = this.challengeFails.bind(this);
         this.challengeSucceeds = this.challengeSucceeds.bind(this);
+        this.deliverPenalty = this.deliverPenalty.bind(this);
+        this.deliverReward = this.deliverReward.bind(this);
+        this.advanceTurn = this.advanceTurn.bind(this);
     }
 
     state = {
@@ -69,31 +70,66 @@ export class GameApp extends Component {
 
     }
 
-    addNewPlayer(){
-        var thisUser = Meteor.user();
-        Meteor.call('addPlayer', this.data.game._id, thisUser._id, thisUser.username, 'spectator');
-    }
-
     makePenalty(team){
         var receivingTeam = team === 'red' ? 'Blue' : 'Red';
         return (
-            <Modal></Modal>
+            <Modal
+                isOpen={this.state.deliveringPenalty}
+                style={customStyles}
+                >
+                <Markdown source={PENALTIES["1"].text} />
+                <button className='ui right floated positive button' onClick={this.advanceTurn}>
+                    Next Challenge
+                </button>
+            </Modal>
         )
     }
 
     makeReward(team){
         var receivingTeam = team === 'red' ? 'Red' : 'Blue';
+        console.log("REWARDS['1']: ",REWARDS["1"].text);
+        console.log("REWARDS: ",REWARDS);
         return (
-            <Modal></Modal>
+            <Modal
+                isOpen = {this.state.deliveringReward}
+                style = {customStyles}
+                >
+                <div className='ui one column grid'>
+                    <div className='column'>
+                        <div className='ui header'>
+                        <Markdown source={REWARDS["1"].text} />
+                            </div>
+                    </div>
+                    <div className='column'>
+                        <button className='ui right floated positive button' onClick={this.advanceTurn}>
+                            Next Challenge
+                        </button>
+                    </div>
+                </div>
+            </Modal>
         )
     }
 
     challengeSucceeds(){
-        console.log("Answer was correct!");
+        Meteor.call('incrementScore', this.data.game._id, this.data.currentTeam);
+        this.deliverReward();
     }
 
     challengeFails(){
-        console.log("Answer was incorrect.");
+        this.deliverPenalty();
+    }
+
+    deliverReward(){
+        console.log("deliveringReward");
+        this.setState({
+            deliveringReward : true
+        })
+    }
+
+    deliverPenalty(){
+        this.setState({
+            deliveringPenalty : true
+        })
     }
 
     nextChallenge(){
@@ -102,6 +138,20 @@ export class GameApp extends Component {
 
     lastChallenge(){
         Meteor.call('lastChallenge', this.data.game._id);
+    }
+
+    addNewPlayer(){
+        var thisUser = Meteor.user();
+        Meteor.call('addPlayer', this.data.game._id, thisUser._id, thisUser.username, 'spectator');
+    }
+
+    advanceTurn(){
+        this.setState({
+            deliveringPenalty : false,
+            deliveringReward : false
+        });
+        this.nextChallenge();
+        Meteor.call('changeCurrentTeam', this.data.game._id);
     }
 
     render(){
@@ -124,22 +174,21 @@ export class GameApp extends Component {
                 this.addNewPlayer();
             }
 
+            var renderingModal = null;
+            if (this.state.deliveringPenalty){
+                renderingModal = this.makePenalty(this.data.currentTeam);
+            } else if (this.state.deliveringReward){
+                renderingModal = this.makeReward(this.data.currentTeam);
+            }
+            console.log('renderingModal: ',renderingModal);
+
             return (
                 <div className='ui grid'>
                     <div className='sixteen wide column'>
                         <GameLogin /> {" | "} <Link to='/game'>Back to Lobby</Link>
                     </div>
-                    <div className='sixteen wide column'>
-                        <button className='ui button'>Deliver Penalty</button>
-                        <button className='ui button'>Deliver Reward</button>
-                        <button className='ui button' onClick={this.lastChallenge}>
-                            Last Challenge
-                        </button>
-                        <button className='ui button' onClick={this.nextChallenge}>
-                            Next Challenge
-                        </button>
-                    </div>
                     <div className='twelve wide column'>
+                        {renderingModal}
                         <GameChallenges
                             currentChallenge={this.data.currentChallenge}
                             makePenalty={this.makePenalty}
@@ -147,11 +196,13 @@ export class GameApp extends Component {
                             nextChallenge={this.nextChallenge}
                             challengeSucceeds={this.challengeSucceeds}
                             challengeFails={this.challengeFails}
+                            advanceTurn={this.advanceTurn}
                             />
                         {  }
                     </div>
                     <div className='four wide column'>
                         <GameScoreboard
+                            game={this.data.game}
                             name={this.data.name}
                             players={this.data.players}
                             currentChallenge={this.data.currentChallenge}

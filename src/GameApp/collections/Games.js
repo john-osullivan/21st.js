@@ -32,7 +32,7 @@ const GameSchema = new SimpleSchema({
     },
     currentTeam : {
         type : String,
-        allowedValues : ['red', 'blue']
+        allowedValues : ['red', 'blue', 'none']
     },
     updatedAt : {
         type: Date,
@@ -47,6 +47,32 @@ const GameSchema = new SimpleSchema({
                 return new Date();
             }
         }
+    },
+    red : {
+        type : Object
+    },
+    "red.score" : {
+        type : Number
+    },
+    "red.effects" : {
+        type : Array
+    },
+    "red.effects.$" : {
+        type : Object,
+        blackbox : true
+    },
+    blue : {
+        type : Object
+    },
+    "blue.score" : {
+        type : Number
+    },
+    "blue.effects" : {
+        type : Array
+    },
+    "blue.effects.$" : {
+        type : Object,
+        blackbox : true
     }
 });
 

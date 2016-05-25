@@ -15,7 +15,6 @@ export default class MultipleChoice extends Component {
     };
 
     checkAnswer(){
-        console.log('this in checkAnswer: ',this);
         if (this.state.selectedAnswer === this.props.options[this.props.correctIndex]){
             this.props.challengeSucceeds();
         } else {
@@ -24,7 +23,6 @@ export default class MultipleChoice extends Component {
     };
 
     buildAnswers(){
-        console.log("Running buildAnswers.");
         if (_.has(this.state, 'optionOrder')){
             return _.map(this.state.optionOrder, function(optionIndex, key){
                 var option = this.props.options[optionIndex];
@@ -67,9 +65,7 @@ export default class MultipleChoice extends Component {
     }
 
     render(){
-        console.log('this.state: ',this.state);
         var answers = _.has(this.state, 'options') ? this.state.options : this.buildAnswers();
-        console.log("Is this.state.options set?: ",_.has(this.state, 'options'));
         var submitClasses = this.state.selectedAnswer !== 'none' ?
             'ui right floated fluid positive button' :
             'ui right floated fluid positive disabled button';

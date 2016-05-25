@@ -7,7 +7,15 @@ Meteor.methods({
             name : gameArgs.name,
             players : gameArgs.players,
             currentChallenge : gameArgs.currentChallenge,
-            currentTeam : gameArgs.currentTeam
+            currentTeam : gameArgs.currentTeam,
+            red : {
+                score : 0,
+                effects : []
+            },
+            blue : {
+                score : 0,
+                effects : []
+            }
         })
     },
     addPlayer: function(gameId, userId, username, team){
@@ -25,9 +33,6 @@ Meteor.methods({
                 }
             }
         })
-    },
-    assignDrinks : function(gameId, userId, drinkCount){
-
     },
     nextChallenge : function(gameId){
         var game = Games.findOne({_id : gameId});
@@ -53,7 +58,35 @@ Meteor.methods({
             console.log("Tried to go to challenge before 0, no can do.")
         }
     },
-    heartbeat : function(gameId, userId){
+    changeCurrentTeam : function(gameId){
+        var game = Games.findOne({_id : gameId});
+        var newVal = game.currentTeam === 'red' ? 'blue' : 'red';
+        Games.update({
+            _id : gameId
+        }, {
+            $set : {
+                currentTeam : newVal
+            }
+        })
+    },
+    incrementScore : function(gameId, team){
+        var game = Games.findOne({_id : gameId});
+        if (team === 'red'){
+            Games.update({
+                _id : gameId
+            },{
+                $inc : { "red.score" : 1}
+            })
+        } else {
+            Games.update({
+                _id : gameId
+            },{
+                $inc : { "blue.score" : 1}
+            })
+        }
+
+    },
+    decrementScore : function(gameId, team){
 
     }
 });

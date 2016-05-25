@@ -28,6 +28,8 @@ export default class GameScoreboard extends Component {
             function(player){return this.buildPlayerItem(player)}.bind(this));
         console.log("redPlayers: ",redPlayers);
         console.log("bluePlayers: ",bluePlayers);
+        var redCellClass = this.props.currentTeam === 'red' ? 'active' : null;
+        var blueCellClass = this.props.currentTeam === 'blue' ? 'active' : null;
         return (
             <div>
                 <h2 className='ui dividing header'>
@@ -35,9 +37,19 @@ export default class GameScoreboard extends Component {
                 </h2>
                 <table className='two column table celled ui'>
                     <thead><tr><th className='redHeading'>Red Team</th><th className='blueHeading'>Blue Team</th></tr></thead>
-                    <tbody><tr><td>redscore</td><td>bluescore</td></tr></tbody>
+                    <tbody><tr>
+                        <td className={redCellClass}>
+                            <div className='ui large horizontal statistic'>
+                                <div className='value'>{this.props.game.red.score}</div>
+                            </div>
+                        </td>
+                        <td className={blueCellClass}>
+                            <div className='ui large horizontal statistic'>
+                                <div className='value'>{this.props.game.blue.score}</div>
+                            </div>
+                        </td></tr>
+                    </tbody>
                 </table>
-                Current Turn: Team {this.props.currentTeam}
                 <h3 className='ui header inverted red'>Red Team</h3>
                 <div className='ui divided horizontal list'>
                     {redPlayers}
