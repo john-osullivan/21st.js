@@ -3,11 +3,7 @@
     "text":"### QuestionMaster \n Choose one question as a team, everybody on the other team has to answer."
   },
   "2" : {
-    "text":"### Hit the Deck \n Everyone drop to the ground and lay with their forehead down.  Last one there has to stay on the ground for three turns.",
-    "effect":{
-      "labelText":"Hit the Deck",
-      "duration" : 3
-    }
+    "text":"### Hit the Deck \n Everyone drop to the ground and lay with their forehead down.  Last one there has to stay on the ground for three turns."
   },
   "3" : {
     "text":"### Storytime \n Tell a funny story from back when you were in high school."
@@ -16,54 +12,24 @@
     "text":"### Storytime \n Tell a wild college story."
   },
   "5" : {
-    "text":"### Bottoms Up \n Choose someone on the opposite team "
+    "text":"### Bottoms Up \n Choose someone on the opposite team to finish their drink."
   },
   "6" : {
-
+    "text":"### Karaoke! \n Choose one member of any team, including yourself, to karaoke to their favorite song for more than one and up to three minutes."
   },
   "7" : {
-
+    "text":"### Bust a Rhyme \n The first person on the opposing team has to say a line, and the next person has to say one that rhymes.  First person to break the chain takes a drink!"
   },
   "8" : {
-
+    "text":"### Hand 'Em Out \n Distribute four drinks over the members of the opposing team."
   },
   "9" : {
-
+    "text":"### Bust a Move \n Stand up and dance to no music for thirty seconds."
   },
   "10" : {
-
+    "text":"### Categories \n Your team chooses a category, every person on the opposing team has to come up with an idea in it.  First person who can't takes a drink!"
   },
   "11" : {
-
-  },
-  "12" : {
-
-  },
-  "13" : {
-
-  },
-  "14" : {
-
-  },
-  "15" : {
-
-  },
-  "16" : {
-
-  },
-  "17" : {
-
-  },
-  "18" : {
-
-  },
-  "19" : {
-
-  },
-  "20" : {
-
-  },
-  "21" : {
-
+    "text":"### Pick a Number \n Pick a number from one to ten, everyone on the opposing team has to guess it.  Whoever is furthest from the correct answer takes a drink."
   }
 }

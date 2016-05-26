@@ -70,7 +70,7 @@ export default class GameChallenges extends Component {
                 challengeAction = (
                     <div className='ui bottom attached segment one column grid'>
                         <div className='column'>
-                            <button className='ui right floated positive button'>
+                            <button onClick={this.props.restartGame} className='ui right floated positive button'>
                                 Restart 21.js
                             </button>
                         </div>

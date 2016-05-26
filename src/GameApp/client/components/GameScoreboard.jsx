@@ -41,15 +41,23 @@ export default class GameScoreboard extends Component {
                         <td className={redCellClass}>
                             <div className='ui large horizontal statistic'>
                                 <div className='value'>{this.props.game.red.score}</div>
+                                <div className='label'>points</div>
                             </div>
                         </td>
                         <td className={blueCellClass}>
                             <div className='ui large horizontal statistic'>
                                 <div className='value'>{this.props.game.blue.score}</div>
+                                <div className='label'>points</div>
                             </div>
                         </td></tr>
                     </tbody>
                 </table>
+                <h3>Your Team</h3>
+                <select value={this.props.playerTeam} onChange={this.props.updateTeam}>
+                    <option value='red' onChange={()=>{this.props.updateTeam('red')}}>Red</option>
+                    <option value='blue' onChange={()=>{this.props.updateTeam('blue')}}>Blue</option>
+                    <option value='spectator' onChange={()=>{this.props.updateTeam('spectator')}}>Spectator</option>
+                </select>
                 <h3 className='ui header inverted red'>Red Team</h3>
                 <div className='ui divided horizontal list'>
                     {redPlayers}

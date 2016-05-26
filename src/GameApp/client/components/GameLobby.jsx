@@ -75,6 +75,11 @@ export class GameLobby extends Component {
                 <div className='ui message'>
                     <div className='header'>One Moment Please...</div>
                     The server will finish lobbing you the lobbies in just an instant.
+
+                    ...
+
+                    And if you're looking at this for more than a moment, then something is
+                    probably wrong.  Sorry.
                 </div>
             );
         } else {

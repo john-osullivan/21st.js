@@ -41,12 +41,15 @@ export class GameApp extends Component {
         this.deliverPenalty = this.deliverPenalty.bind(this);
         this.deliverReward = this.deliverReward.bind(this);
         this.advanceTurn = this.advanceTurn.bind(this);
+        this.restartGame = this.restartGame.bind(this);
+        this.updateTeam = this.updateTeam.bind(this);
     }
 
     state = {
         currentTurn : 'start',
         deliveringReward : false,
-        deliveringPenalty: false
+        deliveringPenalty: false,
+        devMode : false
     };
 
     getMeteorData(){
@@ -58,26 +61,40 @@ export class GameApp extends Component {
             };
         } else {
             var thisGame = Games.find({ _id : gameId}).fetch()[0];
+            var thisPlayer = _.find(thisGame.players, function(player){
+                return player.userId === Meteor.user()._id
+            });
             return {
                 loading : false,
                 game : thisGame,
+                _id : thisGame._id,
                 name : thisGame.name,
                 players : thisGame.players,
                 currentChallenge : thisGame.currentChallenge,
-                currentTeam : thisGame.currentTeam
+                currentTeam : thisGame.currentTeam,
+                playerTeam : thisPlayer.team
             };
         }
 
     }
 
+    updateTeam(event){
+        console.log("Calling setPlayerTeam with gameId, userId, value: ", this.data._id, Meteor.user()._id, event.target.value);
+        Meteor.call('setPlayerTeam', this.data._id, Meteor.user()._id, event.target.value)
+    }
+
     makePenalty(team){
         var receivingTeam = team === 'red' ? 'Blue' : 'Red';
+        var penalty = _.sample(_.values(PENALTIES));
         return (
             <Modal
                 isOpen={this.state.deliveringPenalty}
                 style={customStyles}
                 >
-                <Markdown source={PENALTIES["1"].text} />
+                <div className='ui one column grid'>
+                    Incorrect :(
+                </div>
+                <Markdown source={penalty.text} />
                 <button className='ui right floated positive button' onClick={this.advanceTurn}>
                     Next Challenge
                 </button>
@@ -89,6 +106,7 @@ export class GameApp extends Component {
         var receivingTeam = team === 'red' ? 'Red' : 'Blue';
         console.log("REWARDS['1']: ",REWARDS["1"].text);
         console.log("REWARDS: ",REWARDS);
+        var reward = _.sample(_.values(REWARDS));
         return (
             <Modal
                 isOpen = {this.state.deliveringReward}
@@ -97,8 +115,9 @@ export class GameApp extends Component {
                 <div className='ui one column grid'>
                     <div className='column'>
                         <div className='ui header'>
-                        <Markdown source={REWARDS["1"].text} />
+                            Correct!
                             </div>
+                        <Markdown source={reward.text} />
                     </div>
                     <div className='column'>
                         <button className='ui right floated positive button' onClick={this.advanceTurn}>
@@ -154,6 +173,10 @@ export class GameApp extends Component {
         Meteor.call('changeCurrentTeam', this.data.game._id);
     }
 
+    restartGame(){
+        Meteor.call('restartGame', this.data.game._id);
+    }
+
     render(){
         console.log("this.data in GameApp.render(): ",this.data);
         if (this.data.loading){
@@ -180,6 +203,23 @@ export class GameApp extends Component {
             } else if (this.state.deliveringReward){
                 renderingModal = this.makeReward(this.data.currentTeam);
             }
+
+            var devButtons = (
+                <div className='sixteen wide column'>
+                    <button className='ui button' onClick={this.deliverPenalty}>
+                        Deliver Penalty
+                    </button>
+                    <button className='ui button' onClick={this.deliverReward}>
+                        Deliver Reward
+                    </button>
+                    <button className='ui button' onClick={this.lastChallenge}>
+                        Last Challenge
+                    </button>
+                    <button className='ui button' onClick={this.nextChallenge}>
+                        Next Challenge
+                    </button>
+                </div>
+            );
             console.log('renderingModal: ',renderingModal);
 
             return (
@@ -187,6 +227,7 @@ export class GameApp extends Component {
                     <div className='sixteen wide column'>
                         <GameLogin /> {" | "} <Link to='/game'>Back to Lobby</Link>
                     </div>
+
                     <div className='twelve wide column'>
                         {renderingModal}
                         <GameChallenges
@@ -197,6 +238,7 @@ export class GameApp extends Component {
                             challengeSucceeds={this.challengeSucceeds}
                             challengeFails={this.challengeFails}
                             advanceTurn={this.advanceTurn}
+                            restartGame={this.restartGame}
                             />
                         {  }
                     </div>
@@ -207,6 +249,8 @@ export class GameApp extends Component {
                             players={this.data.players}
                             currentChallenge={this.data.currentChallenge}
                             currentTeam={this.data.currentTeam}
+                            updateTeam={this.updateTeam}
+                            playerTeam={this.data.playerTeam}
                             />
                     </div>
                 </div>

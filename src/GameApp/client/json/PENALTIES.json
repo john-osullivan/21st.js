@@ -1,65 +1,125 @@
 {
   "1" : {
-    "text" : "### Waterfall!"
+    "text" : "### Waterfall! \n When the first person on the team starts drinking, the next person on the team starts drinking until the person before them stops."
   },
   "2" : {
-
+    "text":"### Hit the Deck \n Everyone drop to the ground and lay with their forehead down.  Last one there has to stay on the ground for three turns.",
+    "effect":{
+      "labelText":"Hit the Deck",
+      "duration" : 3
+    }
   },
   "3" : {
-
+    "text" : "### Storytime \n Tell an embarrassing story from middle school."
   },
   "4" : {
-
+    "text" : "### Bitchin' 'Bout Bugs \n Tell a story about one of the mnost annoying bugs you've ever had to fix."
   },
   "5" : {
-
+    "text" : "### No Touching \n If any team member touches their nose for the next three turns, they take a drink",
+    "effect":{
+      "labelText":"No Nose Touching",
+      "duration":3
+    }
   },
   "6" : {
-
+    "text" : "### No Swearing \n If any team member swears for the next three turns, take a drink.",
+    "effect":{
+      "labelText":"No Swearing",
+      "duration":3
+    }
   },
   "7" : {
-
+    "text":"### Pick Your Poison \n Take a shot of a drink chosen by the team member to your left."
   },
   "8" : {
-
+    "text":"### Impressions \n Every team member has to speak like Christian Bale's Batman for three turns.",
+    "effect":{
+      "labelText":"Speak like Batman",
+      "duration":3
+    }
   },
   "9" : {
-
+    "text":"### Do You Even Startup, Bro? \n Every team member has to start their sentences with hashtag and end them with 'dot com' for the next three turns.",
+    "effect":{
+      "labelText":"Say #[...].com",
+      "duration":3
+    }
   },
   "10" : {
-
+    "text":"### No Pronouns \n No team member can use pronouns for the next three turns.  If they do, take a drink!",
+    "effect":{
+      "labelText":"Say #[...].com",
+      "duration":3
+    }
   },
   "11" : {
-
+    "text":"### Whose Rule Is It Anyways? \n The opposing team gets to make up a rule which your team has to follow."
   },
   "12" : {
-
+    "text":"### Now Meow \n Everyone has to use the word 'meow' instead of 'now ' for the next three turns... or take a drink!",
+    "effect":{
+      "labelText":"Now Meow",
+      "duration":3
+    }
   },
   "13" : {
-
+    "text":"### Who is me? \n No team member can speak in the first person for the next three turns.",
+    "effect":{
+      "labelText":"No 1st Person",
+      "duration":3
+    }
   },
   "14" : {
-
+    "text":"### T-Rex Arms \n Whenever a team member goes to drink over the next three turns, they have to lock their elbows at their sides to give them little T-Rex arms.  If they forget, drink again.",
+    "effect":{
+      "labelText":"T-Rex Arms",
+      "duration":3
+    }
   },
   "15" : {
-
+    "text":"### Little Green Man \n For the next three turns, everyone in the game has to remove the 'Little Green Man' sitting on the rim of their cup before drinking from it, or else they have to drink twice!",
+    "effect":{
+      "labelText":"Little Green Man",
+      "duration":3
+    }
   },
   "16" : {
-
+    "text":"### Ditto \n Every team member repeats the last word of every sentence they say for the next three turns, or they drink!",
+    "effect":{
+      "labelText":"Last Word Twice",
+      "duration":3
+    }
   },
   "17" : {
-
+    "text":"### No Names \n You can't refer to any team member by their actual name for the next five turns, use some nickname instead.  Use their name, take a drink!",
+    "effect":{
+      "labelText":"No Names",
+      "duration":5
+    }
   },
   "18" : {
-
+    "text":"### Boot Camp \n For the next three turns, you must end any response to any member of the other team with 'Sir, yes, sir!'",
+    "effect":{
+      "labelText":"Sir, Yes, Sir!",
+      "duration":3
+    }
   },
   "19" : {
-
+    "text":"### Bottoms Up! \n Quick and easy -- everyone on the team finish their drinks and pour another."
   },
   "20" : {
-
+    "text":"### No Phones \n If any team member touches their cellphone for the next five turns, they take a drink.",
+    "effect":{
+      "labelText":"No Phones",
+      "duration":5
+    }
   },
   "21" : {
-
+    "text":"### Vikings \n Any time a member of the opposite team motions their hands to their head as if they were horns on a viking helmet, every person on your team has to copy them.  Lasts four turns, last person to do so takes a drink.",
+    "effect":{
+      "labelText":"Viking Hands",
+      "duration":4
+    }
   }
 }

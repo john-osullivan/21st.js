@@ -15,12 +15,12 @@
     "correctIndex" : 3
   },
   "4" : {
-    "text" : "```(function(x, f = () => x) { \n var x; \n var y = x; \n x = 2; \n return [x, y, f()]; \n })(1)```",
+    "text" : "```\n(function(x, f = () => x) { \n var x; \n var y = x; \n x = 2; \n return [x, y, f()]; \n })(1)\n```",
     "options" : ["`[2, 1, 1]`", "`[2, undefined, 1]`", "`[2, 1, 2]`", "`[2, undefined, 2]`"],
     "correctIndex" : 0
   },
   "5" : {
-    "text" : "```(function() { \n   let f = this ? class g { } : class h { }; \n   return [ \n     typeof f, \n     typeof h \n   ]; \n })();",
+    "text" : "```\n(function() { \n   let f = this ? class g { } : class h { }; \n   return [ \n     typeof f, \n     typeof h \n   ]; \n })();\n```",
     "options" : ["`['function', 'undefined']`", "`['function', 'function']`", "`['undefined', 'undefined']`", "`Error`"],
     "correctIndex" : 0
   },
@@ -30,7 +30,7 @@
     "correctIndex" : 1
   },
   "7" : {
-    "text" : "### 2005: and a white paper was just released about 'AJAX': asynchronous JavaScript and XML. \n Which of these sites became its premier showcase in the years to come?",
+    "text" : "### 2005: The first white paper is released about 'AJAX': asynchronous JavaScript and XML. \n Which of these sites became its premier showcase in the years to come?",
     "options" : ["Google Maps", "Outlook Web App", "Facebook", "eBaum's World"],
     "correctIndex" : 0
   },
@@ -45,63 +45,63 @@
     "correctIndex" : 0
   },
   "10" : {
-    "text" : "",
-    "options" : [],
-    "correctIndex" : 0
+    "text" : "```\nvar f = function g(){ return 23; }; \n typeof g();\n```",
+    "options" : ["'number'", "'undefined'", "'function'", "Error"],
+    "correctIndex" : 3
   },
   "11" : {
-    "text" : "",
-    "options" : [],
+    "text" : "```\n(function f(f){ \n  return typeof f(); \n })(function(){ return 1; });\n```",
+    "options" : ["'number'", "'undefined'", "'function'", "Error"],
     "correctIndex" : 0
   },
   "12" : {
-    "text" : "",
-    "options" : [],
-    "correctIndex" : 0
+    "text" : "\n ``` \n var f = (function f(){ return '1'; }, function g(){ return 2; })(); \n typeof f;\n```",
+    "options" : ["'string'", "'number'", "'function'", "'undefined'"],
+    "correctIndex" : 1
   },
   "13" : {
-    "text" : "",
-    "options" : [],
+    "text" : "### September 2009: The node package manager is released: npm. \n npm lets us install packages into a node.js program's environment using the `package.json` file.  However, the folder all those packages go in is called `node_modules`.  In npm, what field do you add to the `package.json` file to distinguish it as a module?",
+    "options" : ["`main`", "`name`", "`scripts`", "`dependencies`"],
     "correctIndex" : 0
   },
   "14" : {
-    "text" : "",
-    "options" : [],
-    "correctIndex" : 0
+    "text" : "### Module Builders \n Large Javascript projects are spread across many files, but they all need to get delivered to the browser in order.  Module builders solve that problem by combining all the code into one big file.  So many people have run into the issue that there are too many solutions to choose from.  Which of these libraries *isn't* a module builder?",
+    "options" : ["Webpack", "Browserify", "Gulp", "Grunt"],
+    "correctIndex" : 3
   },
   "15" : {
-    "text" : "",
-    "options" : [],
+    "text" : "### Transpilers \n Delivering large Javascript applications to the client has its downsides -- the file gets to be massive, for one thing.  Javascript compilers like Babel have been developed to 'minify' these files, among other things.  Another problem they solve is variations in feature support across different browsers.  What do they use to solve it?",
+    "options" : ["Polyfills", "Uglify", "Decorators", "Plug-ins"],
     "correctIndex" : 0
   },
   "16" : {
-    "text" : "",
-    "options" : [],
-    "correctIndex" : 0
+    "text" : "```\n(function f(){ \n   function f(){ return 1; } \n   return f(); \n   function f(){ return 2; } \n })();\n```",
+    "options" : [1, 2, "Error (e.g. 'Too much recursion')", "undefined"],
+    "correctIndex" : 1
   },
   "17" : {
-    "text" : "",
-    "options" : [],
-    "correctIndex" : 0
+    "text" : "```\nvar x = [typeof x, typeof y][1]; \n typeof typeof x;\n```",
+    "options" : ["'number'", "'string'", "'undefined'", "'Object'"],
+    "correctIndex" : 1
   },
   "18" : {
-    "text" : "",
-    "options" : [],
-    "correctIndex" : 0
+    "text" : "```\nvar x = 1;\nif (function f(){}) {\n  x += typeof f;\n}\nx;\n```",
+    "options" : [1, "'1function'", "'1undefined'", "NaN"],
+    "correctIndex" : 2
   },
   "19" : {
-    "text" : "",
-    "options" : [],
-    "correctIndex" : 0
+    "text" : "### December 2009: MongoDB v0.1 is released by MongoDB Inc. \n It is one of many new 'NoSQL' databases competing with traditional SQL solutions, and it becomes a favorite of the Javascript community thanks to its similarity with JSON objects.  What variety of NoSQL database is MongoDB?",
+    "options" : ["Data-Structures Server", "Document Store", "Key-Value Store", "Object Database"],
+    "correctIndex" : 1
   },
-  "18" : {
-    "text" : "",
-    "options" : [],
-    "correctIndex" : 0
+  "20" : {
+    "text" : "### January 2012: The Meteor.js web framework was released by the Meteor Development Group. \n It implements the Distributed Data Protocol to automatically propagatee data changes to clients, making web programming **much** simpler.  Under the hood, what design pattern is used to make this work?",
+    "options" : ["Request--Reply", "Push--Pull", "Publish--Subscribe", "Exclusive Pair"],
+    "correctIndex" : 2
   },
-  "19" : {
-    "text" : "",
-    "options" : [],
-    "correctIndex" : 0
+  "21" : {
+    "text" : "### React.js, a JS library for building user interfaces, is open-sourced by Facebook. \n React.js builds UIs out of components which use `this.props` from their parents and an internal `this.state` to compute how they should be rendered in a 'virtual DOM'.  React handles rendering that virtual DOM to real HTML and updating it as necessary, so your UI can be written like a state machine.  If you wanted to access a property of the HTML once it's written, such as the height of an element from the top of the page, which lifecycle method would you do that in?",
+    "options" : ["`componentWillUpdate()`", "`componentDidUpdate()`", "`componentWillMount()`", "`componentDidMount()`"],
+    "correctIndex" : 3
   }
 }

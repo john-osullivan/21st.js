@@ -34,6 +34,14 @@ Meteor.methods({
             }
         })
     },
+    setPlayerTeam: function(gameId, userId, team){
+        Games.update({
+            _id : gameId,
+            "players.userId" : userId
+        }, {
+            $set : { "players.$.team" : team}
+        });
+    },
     nextChallenge : function(gameId){
         var game = Games.findOne({_id : gameId});
         if (game.currentChallenge < 22){
@@ -88,5 +96,12 @@ Meteor.methods({
     },
     decrementScore : function(gameId, team){
 
+    },
+    restartGame : function(gameId){
+        Games.update({
+            _id : gameId
+        },{
+            $set : { currentChallenge : 0}
+        })
     }
 });
